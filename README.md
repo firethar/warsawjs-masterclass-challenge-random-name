@@ -1,5 +1,16 @@
 # WarsawjsMasterclassChallengeRandomName
 
+# Challenge 1
+
+    + Po wejściu na stronę, prezentuje się dowolne imię
+    + Po odświeżeniu imię powinno się zmienić na inne
+    + Nie trzeba sprawdzać, czy imię już było wyświetlone
+    + Należy zbudować listę imion w oddzielnym pliku *.json
+    + Liczba imion musi być większa (albo równa) 10.
+
+
+## Angular CLI
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
 
 ## Development server
