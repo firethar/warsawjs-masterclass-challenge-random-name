@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'warsawjs-masterclass-challenge-random-name';
+  title = 'WarsawJS - Angular Masterclass';
+  subTitle = 'Challenge 1 : Random Name';
 }
