@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RandomNameService } from './random-name.service';
+import { Observable } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { Name, NamesData } from './names';
 
 @Component({
   selector: 'app-random-name',
@@ -7,18 +10,26 @@ import { RandomNameService } from './random-name.service';
   styleUrls: ['./random-name.component.css']
 })
 export class RandomNameComponent implements OnInit {
-  public generatedName: string;
+  public errorMessage: string = '';
+  public $generatedName: Observable<Name>;
 
-  constructor(private randomName: RandomNameService) { }
-
-  public showGeneratedName() {
-    this.randomName.getNames()
-      .subscribe((data: any[]) => {
-        this.generatedName = data[Math.floor(Math.random() * data.length)];
-      });
-  }
+  constructor(private randomNameService: RandomNameService) {}
 
   ngOnInit() {
-    this.showGeneratedName();
+    this.load();
+  }
+
+  load() {
+    this.$generatedName = this.randomNameService
+      .getNames()
+      .pipe(
+        map((names: NamesData) => {
+          return names[Math.floor(Math.random() * names.length)];
+        })
+      );
+  }
+
+  reload() {
+    this.load();
   }
 }
