@@ -1,19 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Name, NamesData } from './names';
+import { Name } from './name';
+import { environment } from 'src/environments/environment';
+import { map } from 'rxjs/operators';
 
-const DATA_URL: string = './assets/data/names.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RandomNameService {
-
   constructor(private http: HttpClient) { }
 
-  public getNames(): Observable<NamesData> {
-    const namesUrl: string = `${DATA_URL}`;
-    return this.http.get<NamesData>(namesUrl);
+  public getNames(): Observable<Name[]> {
+    const namesUrl: string = environment.dataUrl;
+    return this.http.get<Name[]>(namesUrl);
+  }
+
+  public getRandomName(): Observable<Name> {
+    return this.getNames().pipe(
+      map((names: Name[]) => {
+        return names[Math.floor(Math.random() * names.length)];
+      })
+    );
   }
 }
