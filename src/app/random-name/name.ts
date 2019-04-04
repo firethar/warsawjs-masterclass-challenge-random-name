@@ -1,3 +1,3 @@
-export interface Name {
-  value: string;
-}
+export interface Name = string
+
+export interface Names = Name[]
