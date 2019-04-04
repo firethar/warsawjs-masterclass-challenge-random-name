@@ -1,3 +1,3 @@
-export interface Name = string
+export type Name = string;
 
-export interface Names = Name[]
+export type Names = Name[];
