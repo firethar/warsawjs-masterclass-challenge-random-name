@@ -33,4 +33,10 @@
 
 .hint__link {
   color:  #ff0000;
+  cursor: pointer;
+  display: block;
+  width: 10px;
+}
+.hint__link:hover {
+  transform: scale(1.2);
 }
