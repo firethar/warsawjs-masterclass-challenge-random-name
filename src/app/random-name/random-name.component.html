@@ -1,5 +1,8 @@
 <div class="container">
-  <p class="random-name__description">Twoim wylosowanym imieniem na dzisiaj jest:</p>
-  <p class="random-name__result"><span class="random-name__box">{{ generatedName }}</span></p>
-  <p class="hint">Nie pasuje? To jeszcze raz &nbsp;<a class="hint__link" href="/warsawjs-masterclass-challenge-random-name/"><i class="fa fa-refresh" aria-hidden="true"></i></a></p>
+  <p class="random-name__description">
+    Twoim wylosowanym imieniem na dzisiaj jest:
+  </p>
+  <p class="random-name__result">
+    <span class="random-name__box">{{ $generatedName | async }}</span>
+  </p>
 </div>
